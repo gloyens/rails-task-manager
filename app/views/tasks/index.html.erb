@@ -1,0 +1,23 @@
+<h1 class="mb-4">My Tasks 📝</h1>
+
+<ul>
+  <% @tasks.each do |task| %>
+    <li>
+      <input
+        type="checkbox"
+        onclick="return false;"
+        <%= task.completed ? "checked" : "" %>
+      />
+      <%= link_to task.title, "../tasks/#{task.id}" %>
+      <%= link_to raw("<i class=\"fa-solid fa-trash link-primary\"></i>"),
+        task_path(task),
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+      %>
+    </li>
+  <% end %>
+</ul>
+
+<button class="btn btn-primary mt-3"><%= link_to "+ Add a new task", "../tasks/new" %></button>
+
+<br>
+<iframe class="mt-5" width="560" height="315" src="https://www.youtube.com/embed/ZZ5LpwO-An4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

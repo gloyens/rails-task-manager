@@ -1,0 +1,11 @@
+<h1 class="mb-4"><%= @task.title %>
+<%= link_to raw("<i class=\"fa-solid fa-pen-to-square link-primary\"></i>"), "#{@task.id}/edit" %>
+<%= link_to raw("<i class=\"fa-solid fa-trash link-primary\"></i>"),
+  task_path(@task),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+%>
+</h1>
+
+<p><%= @task.details %></p>
+
+<button class="btn btn-outline-primary"><%= link_to "Back to list", "../tasks" %></button>
